@@ -94,3 +94,9 @@ let editTask = (e) => {
 
     deleteTask(e);
 }
+//IIFE function expression to retrieve data from local storage
+(() => {
+    data = JSON.parse(localStorage.getItem("data")) || [];
+    console.log(data);
+    createTasks();
+  })();
