@@ -11,6 +11,7 @@ form.addEventListener("submit", (e) => {
     console.log("clicked btn");
 
     formValidation();
+    accessData();
 
 });
 
@@ -31,5 +32,9 @@ let accessData = () => {
         text : textInput.value,
         date : dateInput.value,
         description : textarea.value
-    })
-};
+    });
+    
+    localStorage.setItem("data", JSON.stringify(data));
+
+    console.log(data);
+}
