@@ -23,3 +23,13 @@ let formValidation = () => {
         msg.innerHTML = "";
     } 
 }
+
+let data = [];
+
+let accessData = () => {
+    data.push({
+        text : textInput.value,
+        date : dateInput.value,
+        description : textarea.value
+    })
+};
