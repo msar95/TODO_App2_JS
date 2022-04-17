@@ -54,15 +54,17 @@ let createTasks = () => {
     data.map((x, y) => {
         return (tasks.innerHTML += `
         <div id=${y}>
+               
                 <span class="fw-bold">${x.text}</span>
                 <span class="small text-secondary">${x.date}</span>
+               
           <p>${x.description}</p>
   
           <span class="options">
             <i onClick= "editTask(this)" data-bs-toggle="modal" data-bs-target="#form" class="fas fa-edit"></i>
             <i onClick ="deleteTask(this);createTasks()" class="fas fa-trash-alt"></i>
           </span>
-        <div/>
+        </div>
         `);
     });
 
@@ -78,7 +80,17 @@ let resetForm = () => {
 let deleteTask = (e) => {
     e.parentElement.parentElement.remove(); //removing it from HTML -> hence still in local storage array it is not diaspearring yet though
 
-    data.splice(e.parentElement.parentElement.id,1); // removing this.object by accessing its id via parenElement.parentElement -> 1 element
+    data.splice(e.parentElement.parentElement.id,1); // removing this.object by accessing its id via parenElement.parentElement -> 1
 
     localStorage.setItem("data", JSON.stringify(data)); //updating the data array in local storage
+}
+
+let editTask = (e) => {
+    let selectedTask = e.parentElement.parentElement;
+
+    textInput.value = selectedTask.children[0].innerHTML; //Zugriff auf Objekt im Array auf erste property!
+    dateInput.value = selectedTask.children[1].innerHTML;
+    textarea.value = selectedTask.children[2].innerHTML;
+
+    deleteTask(e);
 }

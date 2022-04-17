@@ -37,3 +37,26 @@ body {
   #msg {
       color : red;
   }
+
+
+  #tasks {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    }
+
+  #tasks div {
+      background-color: rgba(171, 206, 161, 0.35);
+      border-radius: 5px;
+      border: 3px solid rgba(47, 81, 37, 0.35);
+      padding: 5px;
+      display: grid;
+      gap: 4px;
+  }
+
+  #tasks div .options {
+      display : flex;
+      justify-self: center;
+      gap: 20px;
+      cursor: pointer;
+  }
