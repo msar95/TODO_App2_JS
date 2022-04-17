@@ -31,7 +31,6 @@ let formValidation = () => {
         (() => {
             add.setAttribute("data-bs-dismiss", "");
         })
-        textInput.value = "";
     }
 }
 
@@ -67,4 +66,11 @@ let createTasks = () => {
         `);
     });
 
+    resetForm();
 };
+
+let resetForm = () => {
+    textInput.value = "";
+    dateInput.value = "";
+    textarea.value = "";
+}
