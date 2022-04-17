@@ -74,3 +74,11 @@ let resetForm = () => {
     dateInput.value = "";
     textarea.value = "";
 }
+
+let deleteTask = (e) => {
+    e.parentElement.parentElement.remove(); //removing it from HTML -> hence still in local storage array it is not diaspearring yet though
+
+    data.splice(e.parentElement.parentElement.id,1); // removing this.object by accessing its id via parenElement.parentElement -> 1 element
+
+    localStorage.setItem("data", JSON.stringify(data)); //updating the data array in local storage
+}
